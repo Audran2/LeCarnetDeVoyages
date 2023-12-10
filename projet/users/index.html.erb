@@ -1,0 +1,26 @@
+<h1>Liste des Utilisateurs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class='td-user'><%= user.id %></td>
+        <td class='td-user'><%= user.nom %></td>
+        <td class='td-user'>
+          <%= link_to 'Voir', user_path(user), class: 'btn btn-primary' %>
+          <%= button_to "Supprimer", { controller: :users, action: 'destroy', id: user.id }, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="new-user">
+<%= link_to 'Nouvel Utilisateur', new_user_path, class: 'btn btn-success' %>
+</div>

@@ -1,0 +1,19 @@
+<h1>Utilisateur: <%= @user.nom %></h1>
+<p>ID: <%= @user.id %></p>
+<p>Nom: <%= @user.nom %></p>
+<p>Email: <%= @user.email %></p>
+<br>
+<h2>Voyages associés :</h2>
+<ul>
+  <% @user.trips.each do |trip| %>
+    <li>
+      <%= link_to trip.destination, trip %>
+    </li>
+  <% end %>
+</ul>
+
+<div class='btn-user'>
+<%= link_to 'Modifier', edit_user_path(@user), class: 'btn btn-primary' %>
+<%= button_to "Supprimer", { controller: :users, action: 'destroy', id: @user.id }, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+</div>
+<%= link_to 'liste des utilisateurs', users_path, class: 'btn btn-primary' %>

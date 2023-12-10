@@ -1,0 +1,11 @@
+<h1>Voyage : <%= @trip.destination %></h1>
+<p>Description: <%= @trip.description %></p>
+<p>Date de début: <%= l(@trip.date_debut, format: :long) %></p>
+<p>Date de fin: <%= l(@trip.date_fin, format: :long) %></p>
+<p>Utilisateur: <%= link_to @trip.user.nom, @trip.user %></p>
+
+<div class='btn-user'>
+<%= link_to 'Modifier', edit_trip_path(@trip), class: 'btn btn-primary' %>
+<%= button_to "Supprimer", { controller: :trips, action: 'destroy', id: @trip.id }, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+</div>
+<%= link_to 'liste des voyages', trips_path, class: 'btn btn-primary' %>

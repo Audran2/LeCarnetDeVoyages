@@ -1,0 +1,28 @@
+<h1>Liste des Voyages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Utilisateur</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td class='td-trip'><%= trip.id %></td>
+        <td class='td-trip'><%= trip.destination %></td>
+        <td class='td-trip'><%= "#{trip.user.nom} (ID : #{trip.user.id})" if trip.user %></td>
+        <td class='td-trip'>
+          <%= link_to 'Voir', trip_path(trip), class: 'btn btn-primary' %>
+          <%= button_to "Supprimer", { controller: :trips, action: 'destroy', id: trip.id }, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="new-user">
+<%= link_to 'Nouveau voyage', new_trip_path, class: 'btn btn-success' %>
+</div>

@@ -1,0 +1,45 @@
+<div class='form-user'>
+<%= form_with(model: @trip, local: true) do |form| %>
+    <% if @trip.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@trip.errors.count, 'erreur') %> interdit cette création :</h2>
+  
+        <ul>
+          <% @trip.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :user_id, "Utilisateur" %>
+    <%= form.collection_select :user_id, User.all, :id, :nom, prompt: "Sélectionnez un utilisateur" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :destination %>
+      <%= form.text_field :destination %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :date_debut %>
+      <%= form.date_field :date_debut %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :date_fin %>
+      <%= form.date_field :date_fin %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit @trip.new_record? ? 'Créer le voyage' : 'Mettre à jour le voyage', class: 'btn btn-primary' %>
+      <%= link_to 'Annuler', users_path, class: 'btn btn-danger' %>
+    </div>
+  <% end %>
+  </div>

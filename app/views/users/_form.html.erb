@@ -1,0 +1,30 @@
+<div class='form-user'>
+<%= form_with(model: @user, local: true) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, 'erreur') %> interdit cette création :</h2>
+  
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :nom %>
+      <%= form.text_field :nom %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit @user.new_record? ? 'Créer l\'utilisateur' : 'Mettre à jour l\'utilisateur', class: 'btn btn-primary' %>
+      <%= link_to 'Annuler', users_path, class: 'btn btn-danger' %>
+    </div>
+  <% end %>
+</div>

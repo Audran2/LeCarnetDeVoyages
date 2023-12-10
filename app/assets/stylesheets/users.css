@@ -1,0 +1,97 @@
+.container {
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+p {
+  color: #666;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead > tr {
+  background-color: black;
+}
+
+th {
+  color: white;
+  padding: 8px;
+}
+
+tbody > tr:nth-of-type(odd) {
+  background: #eeeeee;
+}
+
+td {
+  padding: 8px;
+}
+
+.td-user:nth-child(3),
+.td-trip:nth-child(4) {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgb(44, 44, 168);
+  color: #fff;
+  border: 1px solid rgb(44, 44, 168);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.button_to {
+  width: fit-content;
+}
+
+.new-user {
+  margin-top: 15px;
+  text-align: start;
+}
+
+.btn-user {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+  margin: 2rem 0;
+}
+
+.form-user {
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: auto;
+  padding: 1rem 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  text-align: start;
+  margin-bottom: 1rem;
+}
+
+.actions .btn-primary {
+  margin-bottom: 0.5rem;
+}
