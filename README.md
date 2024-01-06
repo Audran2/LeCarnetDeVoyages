@@ -15,7 +15,7 @@ Cette commande a non seulement initié l'application, mais a également intégr�
 
 Les modèles User et Trip ont été créés ensuite avec les commandes respectives :
 
-`rails g model User nom:string email:string`
+`rails g model User nom:string email:string`<br>
 `rails g model Trip destination:string description:text date_debut:date date_fin:date`
 
 Ces commandes ont généré les fichiers nécessaires pour les modèles, définissant les attributs tels que le nom et l'email pour User, et destination, description, date de début et de fin pour Trip.
@@ -24,7 +24,7 @@ Ces commandes ont généré les fichiers nécessaires pour les modèles, défini
 
 Pour établir une relation one-to-many entre User et Trip, une référence (clé étrangère) a été ajoutée dans le modèle Trip à l'aide des commandes :
 
-`rails generate migration AddIdUserToTrips user:references`
+`rails generate migration AddIdUserToTrips user:references`<br>
 `rails db:migrate`
 
 Ces commandes ont créé une migration pour ajouter une référence à User dans le modèle Trip, et ont migré la base de données pour appliquer ces changements. En complément, la déclaration `has_many :trips` a été ajoutée dans le modèle User (`user.rb`) pour formaliser la relation.
@@ -35,7 +35,7 @@ Ces commandes ont créé une migration pour ajouter une référence à User dans
 
 Les routes nécessaires au projet ont été générées en ajoutant les lignes suivantes dans le fichier `routes.rb` :
 
-`resources :users`
+`resources :users`<br>
 `resources :trips`
 
 Ces lignes ont configuré les routes RESTful pour les modèles User et Trip, facilitant ainsi l'accès aux différentes actions nécessaires.
@@ -44,7 +44,7 @@ Ces lignes ont configuré les routes RESTful pour les modèles User et Trip, fac
 
 Les contrôleurs pour les deux modèles ont été générés avec les commandes :
 
-`rails generate controller Users`
+`rails generate controller Users`<br>
 `rails generate controller Trips`
 
 Cette étape a été cruciale pour mettre en place la logique de contrôle nécessaire à la gestion des utilisateurs et des voyages.
@@ -73,12 +73,12 @@ Afin d'éviter d'écrire deux fois le même code pour les formulaires, j'ai ajou
 
 Dans le fichier `_form.html.erb`, je génère un formulaire rails en l'associant à un modèle. Le paramètre `local: true` signifie que le formulaire sera soumis sans rechargement de page.
 
-Dans le cas du formulaire pour le modèle User :
+Dans le cas du formulaire pour le modèle User :<br>
 `<%= form_with(model: @user, local: true) do |form| %>`
 
 Afin d'avoir le formulaire le plus complet, j'ai ajouté un système d'erreurs qui affiche l'ensemble des erreurs sous forme de liste. Cela permet ainsi d'aiguiller plus facilement l'utilisateur sur les erreurs qu'il a commis.
 
-Le formulaire des voyages possède un champ select peuplé par les utilisateurs. Il permet d'attribuer un voyage à un utilisateur. Le code est donné par :
+Le formulaire des voyages possède un champ select peuplé par les utilisateurs. Il permet d'attribuer un voyage à un utilisateur. Le code est donné par :<br>
 `<%= form.collection_select :user_id, User.all, :id, :nom, prompt: "Sélectionnez un utilisateur" %>`
 
 **_Action sur les pages d'affichage_**
@@ -93,7 +93,7 @@ Le bouton de suppression dispose d'une boite de dialogue pour confirmer la suppr
 
 **_Style_**
 
-Le style du projet a été fait sur le fichier `users.css`. L'application du style sur l'ensemble du pojet se fait via le fichier `application.html.erb` avec le code suivant :
+Le style du projet a été fait sur le fichier `users.css`. L'application du style sur l'ensemble du pojet se fait via le fichier `application.html.erb` avec le code suivant :<br>
 `<%= stylesheet_link_tag 'application', 'users', media: 'all', 'data-turbolinks-track': 'reload' %>`
 
 **Conclusion**
